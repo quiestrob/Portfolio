@@ -629,6 +629,14 @@ body::-webkit-scrollbar-thumb {
     margin: 0;
   }
 
+  .container-image {
+    height: 400px;
+  }
+
+  .container-image img {
+    height: 100%;
+  }
+
   .title-about {
     width: 350px;
   }
