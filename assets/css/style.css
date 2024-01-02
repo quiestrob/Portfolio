@@ -623,14 +623,11 @@ body::-webkit-scrollbar-thumb {
 
   .about-container {
     margin: 100px 0;
+    overflow: hidden;
   }
 
   .about-content {
     margin: 0;
-  }
-
-  .container-image {
-    height: 400px;
   }
 
   .container-image img {
