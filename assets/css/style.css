@@ -1,11 +1,6 @@
 @font-face {
-  font-family: 'Ailerons';
-  src: url(../fonts/Ailerons.otf);
-}
-
-@font-face {
-  font-family: 'Iconic';
-  src: url(../fonts/Iconic.ttf);
+  font-family: 'Crake';
+  src: url(../fonts/Craketest.otf);
 }
 
 * {
@@ -49,10 +44,9 @@ body::-webkit-scrollbar-thumb {
   position: fixed;
   pointer-events: none;
   transform: translate(var(--mouse-x), var(--mouse-y));
-  opacity: 0;
   z-index: 100;
   mix-blend-mode: difference;
-  transition: .5s opacity ease, .5s background ease, .5s width ease, .5s height ease;
+  transition: .5s background ease, .5s width ease, .5s height ease, .3s opacity ease;
 }
 
 .header-container {
@@ -82,7 +76,7 @@ body::-webkit-scrollbar-thumb {
 
 .nav-container nav li a {
   position: relative;
-  font-family: 'Iconic';
+  font-family: 'Poppins';
   color: #fff;
   letter-spacing: .15em;
   text-decoration: none;
@@ -153,7 +147,8 @@ body::-webkit-scrollbar-thumb {
 
 .logo-container__language ul li a {
   display: block;
-  font-family: 'Iconic';
+  font-family: 'Poppins';
+  font-size: 14px;
   color: #000;
   text-decoration: none;
   padding: 5px 10px;
@@ -168,8 +163,8 @@ body::-webkit-scrollbar-thumb {
 }
 
 .header-container .title-container {
-  position: relative;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 90vh;
@@ -177,38 +172,89 @@ body::-webkit-scrollbar-thumb {
 }
 
 .title-container h1 {
-  position: absolute;
-  font-family: 'Ailerons';
-  font-size: 150px;
+  position: relative;
+  font-family: 'Crake';
+  font-size: 200px;
   font-weight: 400;
+  letter-spacing: .1em;
   color: #fff;
-  max-width: 1150px;
   text-align: center;
   opacity: .1;
-  z-index: 0;
-}
-
-.letters {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.letters span {
-  font-family: 'Iconic';
-  font-size: 28px;
-  color: #fff;
-  padding: 15px;
   z-index: 1;
-  transition: .2s color ease, .5s transform ease;
 }
 
-.letters span:nth-child(7) {
-  padding-bottom: 30px;
+.title-container__h1 {
+  position: relative;
 }
 
-.letters span:nth-child(8) {
-  padding-top: 30px;
+.title-container h2 {
+  position: absolute;
+  font-family: 'Poppins';
+  font-size: 20px;
+  font-weight: 400;
+  color: #fff;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.title-container h2 span {
+  position: relative;
+  color: rgba(255, 255, 255, 0.1);
+  animation: displayText 9s infinite;
+  animation-delay: calc(-3s * var(--i));
+}
+
+.title-container h2 span::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  color: #9a2edb;
+  border-right: 2px solid #9a2edb;
+  overflow: hidden;
+  filter: drop-shadow(0 0 5px #9a2edb) drop-shadow(0 0 5px #9a2edb);
+  animation: animate 3s linear infinite;
+}
+
+@keyframes animate {
+  0% {
+    width: 0;
+  }
+  70%, 90% {
+    width: 100%;
+  }
+}
+
+@keyframes displayText {
+  0% {
+    display: inline-block;
+  }
+  33.33%, 100% {
+    display: none;
+  }
+}
+
+.experience {
+  padding: 20px 0;
+}
+
+.experience h2 {
+  font-family: 'Crake';
+  font-size: 25px;
+  color: #fff;
+  font-weight: 400;
+  padding: 10px 0;
+  letter-spacing: .1em;
+}
+
+.icons img {
+  width: 40px;
+  height: 40px;
+  margin: 0 30px 0 0;
+  z-index: 1;
 }
 
 .about-section {
@@ -217,6 +263,7 @@ body::-webkit-scrollbar-thumb {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  cursor: none;
 }
 
 .about-content {
@@ -224,9 +271,6 @@ body::-webkit-scrollbar-thumb {
   display: flex;
   flex-direction: column;
   user-select: none;
-  opacity: 0;
-  top: 200px;
-  transition: 5s opacity ease, 2s top ease-in-out;
 }
 
 .title-about {
@@ -234,38 +278,22 @@ body::-webkit-scrollbar-thumb {
 }
 
 .title-about h2 {
-  font-family: 'Ailerons';
+  font-family: 'Crake';
   font-weight: 400;
   font-size: 70px;
   color: #fff;
 }
 
 .title-about p {
-  font-family: 'Iconic';
-  font-size: 20px;
+  font-family: 'Poppins';
+  font-weight: 300;
+  font-size: 16px;
   line-height: 30px;
   color: #fff;
 }
 
-.experience h2 {
-  font-family: 'Iconic';
-  font-weight: 600;
-  font-size: 25px;
-  letter-spacing: .3em;
-  color: #fff;
-  margin: 0 0 10px 0;
-}
-
-.icons img {
-  width: 40px;
-  height: 40px;
-  margin: 0 20px 0 0;
-  z-index: 1;
-}
-
-.title-about, 
-.experience {
-  margin: 20px 0;
+.title-about {
+  margin: 20px 0 0 0;
 }
 
 .about-content,
@@ -277,11 +305,9 @@ body::-webkit-scrollbar-thumb {
 .container-image img {
   position: relative;
   object-fit: cover;
+  top: -60px;
   width: 100%;
   height: 100%;
-  transform: scale(0);
-  opacity: 0;
-  transition: 2s transform ease, 5s opacity ease;
 }
 
 .projects-section { 
@@ -289,6 +315,7 @@ body::-webkit-scrollbar-thumb {
   display: flex;
   flex-direction: column;
   align-items: center;
+  cursor: none;
 }
 
 .projects-title {
@@ -297,14 +324,11 @@ body::-webkit-scrollbar-thumb {
 
 .projects-title h2 {
   position: relative;
-  font-family: 'Ailerons';
+  font-family: 'Crake';
   font-size: 70px;
   font-weight: 400;
   color: #fff;
   user-select: none;
-  top: 100px;
-  opacity: 0;
-  transition: 2s top ease, 5s opacity ease;
 }
 
 .projects-content {
@@ -322,9 +346,7 @@ body::-webkit-scrollbar-thumb {
   background: #fff;
   padding: 10px 0;
   margin: 30px 50px;
-  top: 150px;
-  opacity: 0;
-  transition: 1s max-height ease, 2s top ease, 5s opacity ease;
+  transition: 1s max-height ease;
 }
 
 .card-project:hover {
@@ -376,10 +398,10 @@ body::-webkit-scrollbar-thumb {
   height: 150px;
   margin: 0 auto;
   overflow: hidden;
-  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: default;
 }
 
 .image-project img {
@@ -398,8 +420,8 @@ body::-webkit-scrollbar-thumb {
 
 .image-project a {
   position: absolute;
-  font-family: 'Iconic';
-  font-size: 20px;
+  font-family: 'Poppins';
+  font-size: 16px;
   color: #fff;
   text-decoration: none;
   opacity: 0;
@@ -426,9 +448,10 @@ body::-webkit-scrollbar-thumb {
 }
 
 .content-project h2 {
-  font-family: 'Iconic';
+  font-family: 'Crake';
   font-size: 18px;
   font-weight: 600;
+  letter-spacing: .1em;
   margin: 10px 0 0 0;
 }
 
@@ -443,7 +466,8 @@ body::-webkit-scrollbar-thumb {
 }
 
 .content-project p {
-  font-family: 'Iconic';
+  font-family: 'Poppins';
+  font-size: 14px;
   font-weight: 500;
   opacity: 0;
   margin: 10px 0 5px 0;
@@ -456,7 +480,8 @@ body::-webkit-scrollbar-thumb {
 
 .content-project a {
   display: block;
-  font-family: 'Iconic';
+  font-family: 'Poppins';
+  font-size: 14px;
   font-weight: 600;
   color: #000;
   text-decoration: none;
@@ -472,6 +497,7 @@ body::-webkit-scrollbar-thumb {
 .contact-container {
   display: flex;
   justify-content: center;
+  cursor: none;
 }
 
 .contact-section {
@@ -484,21 +510,11 @@ body::-webkit-scrollbar-thumb {
 
 .contact-title h2 {
   position: relative;
-  font-family: 'Ailerons';
+  font-family: 'Crake';
   font-size: 70px;
   font-weight: 400;
   color: #fff;
   user-select: none;
-  top: 100px;
-  opacity: 0;
-  transition: 2s top ease, 5s opacity ease;
-}
-
-.contact-content {
-  position: relative;
-  top: 100px;
-  opacity: 0;
-  transition: 2s top ease, 5s opacity ease;
 }
 
 .input-name, 
@@ -548,8 +564,8 @@ body::-webkit-scrollbar-thumb {
 .input-text textarea {
   width: 100%;
   height: 100%;
-  font-family: 'Iconic';
-  font-size: 18px;
+  font-family: 'Poppins';
+  font-size: 16px;
   padding: 0 10px;
   border: none;
 }
@@ -581,11 +597,12 @@ body::-webkit-scrollbar-thumb {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  cursor: none;
 }
 
 .footer-section span {
-  font-family: 'Iconic';
-  font-size: 18px;
+  font-family: 'Poppins';
+  font-size: 16px;
   color: #fff;
   user-select: none;
 }
@@ -631,11 +648,12 @@ body::-webkit-scrollbar-thumb {
   }
 
   .nav-container nav li {
-    margin: 0 10px;
+    margin: 0 5px;
   }
 
   .nav-container nav li a {
-    letter-spacing: .10em;
+    font-size: 16px;
+    letter-spacing: .1em;
   }
 
   .logo-container__language,
@@ -649,6 +667,11 @@ body::-webkit-scrollbar-thumb {
 
   .title-container h1 {
     font-size: 70px;
+    padding: 0 0 30px 0;
+  }
+
+  .title-container h2 {
+    font-size: 15px;
   }
 
   .letters span {
@@ -689,7 +712,7 @@ body::-webkit-scrollbar-thumb {
   }
 
   .title-about p {
-    font-size: 18px;
+    font-size: 16px;
   }
   
   .experience h2 {
@@ -723,5 +746,9 @@ body::-webkit-scrollbar-thumb {
 
   .contact-section {
     align-items: center;
+  }
+
+  .contact-title h2 {
+    font-size: 60px;
   }
 }

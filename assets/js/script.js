@@ -12,53 +12,24 @@ const onMouseMove = (e) => {
 
 addEventListeners();
 
-container.addEventListener('mouseleave', () => {
-    cursor.style.opacity = 0;
-});
-
-container.addEventListener('mouseenter', () => {
-    cursor.style.opacity = 1;
-});
-
 //Agregar efecto al cursor al hacer hover en las letras
-const letters = document.querySelectorAll('.letters span');
+const letters = document.querySelector('.title-container h1');
+const span = document.querySelector('.title-container h2');
 
-letters.forEach( e => {
-    e.addEventListener('mouseover', ()=> {
-        cursor.style.background = '#000';
-        cursor.style.width = '100px';
-        cursor.style.height = '100px';
-        cursor.style.boxShadow = '0 0 0 100vh #fff';
-    });
-
-    e.addEventListener('mouseout', ()=> {
-        cursor.style.background = 'none';
-        cursor.style.width = '80px';
-        cursor.style.height = '80px';
-        cursor.style.boxShadow = 'none';
-    });
+letters.addEventListener('mouseover', ()=> {
+    cursor.style.background = '#000';
+    cursor.style.width = '250px';
+    cursor.style.height = '250px';
+    cursor.style.boxShadow = '0 0 0 200vh #fff';
+    span.style.opacity = 0;
 });
 
-//Ocultar cursor personalizado
-const nav = document.querySelector('.nav-container');
-
-nav.addEventListener('mouseenter', ()=> {
-    cursor.style.opacity = 0;
-});
-
-nav.addEventListener('mouseleave', ()=> {
-    cursor.style.opacity = 1;
-});
-
-//Ocultar cursor personalizado
-const language = document.querySelector('.logo-container__language');
-
-language.addEventListener('mouseenter', ()=> {
-    cursor.style.opacity = 0;
-});
-
-language.addEventListener('mouseleave', ()=> {
-    cursor.style.opacity = 1;
+letters.addEventListener('mouseout', ()=> {
+    cursor.style.background = 'none';
+    cursor.style.width = '80px';
+    cursor.style.height = '80px';
+    cursor.style.boxShadow = 'none';
+    span.style.opacity = 1;
 });
 
 //Mostrar lista lenguaje
@@ -69,69 +40,32 @@ languageIcon.addEventListener('click', ()=> {
     languageList.classList.toggle('click-ul');
 });
 
-//Animacion scroll
-const aboutContent = document.querySelector('.about-content');
-const projectsTitle = document.querySelector('.projects-title h2');
-const cardProject = document.querySelectorAll('.card-project');
-const contactTitle = document.querySelector('.contact-title h2');
-const contactContent = document.querySelector('.contact-content');
-const imgProfile = document.querySelector('.container-image img');
+const imageProject = document.querySelectorAll('.image-project');
+const language = document.querySelector('.logo-container__language');
+const nav = document.querySelector('.nav-container ul');
 
-window.addEventListener('scroll', ()=> {
-    const scroll = window.scrollY;
-    console.log(scroll);
+imageProject.forEach(e => {
+    e.addEventListener('mouseover', ()=> {
+        cursor.style.opacity = 0;
+    });
     
-    //Scroll contenido sobre mi
-    if (scroll >= 500) {
-        aboutContent.style.opacity = 1;
-        aboutContent.style.top = 0;
+    e.addEventListener('mouseout', ()=> {
+        cursor.style.opacity = 1;
+    });
+})
 
-        imgProfile.style.transform = 'scale(1)';
-        imgProfile.style.top = '-60px';
-        imgProfile.style.opacity = 1;
-    } else {
-        aboutContent.style.opacity = 0;
-        aboutContent.style.top = '200px';
+language.addEventListener('mouseover', ()=> {
+    cursor.style.opacity = 0;
+});
+    
+language.addEventListener('mouseout', ()=> {
+    cursor.style.opacity = 1;
+});
 
-        imgProfile.style.transform = 'scale(0)';
-        imgProfile.style.top = 0;
-        imgProfile.style.opacity = 0;
-    }
-
-    //Scroll titulo proyectos
-    if (scroll >= 1200) {
-        projectsTitle.style.top = 0;
-        projectsTitle.style.opacity = 1;
-    } else {
-        projectsTitle.style.top = '100px';
-        projectsTitle.style.opacity = 0;
-    }
-
-    //Scroll contenido proyectos
-    if (scroll >= 1400) {
-        cardProject.forEach(e => {
-            e.style.top = 0;
-            e.style.opacity = 1;
-        })
-    } else {
-        cardProject.forEach(e => {
-            e.style.top = '150px';
-            e.style.opacity = 0;
-        })
-    }
-
-    //Scroll contenido contacto
-    if (scroll >= 2000) {
-        contactTitle.style.top = 0;
-        contactTitle.style.opacity = 1;
-
-        contactContent.style.top = 0;
-        contactContent.style.opacity = 1;
-    } else {
-        contactTitle.style.top = '150px';
-        contactTitle.style.opacity = 0;
-
-        contactContent.style.top = '150px';
-        contactContent.style.opacity = 0;
-    }
+nav.addEventListener('mouseover', ()=> {
+    cursor.style.opacity = 0;
+});
+    
+nav.addEventListener('mouseout', ()=> {
+    cursor.style.opacity = 1;
 });
